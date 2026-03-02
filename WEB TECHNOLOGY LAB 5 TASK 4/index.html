@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array of Objects</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #a18cd1, #fbc2eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: white;
+    padding: 30px;
+    width: 420px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    color: #673ab7;
+}
+
+button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover{
+    background-color: #388E3C;
+}
+
+.student{
+    background-color: #f3f3f3;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.result{
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.topper{
+    color: #e91e63;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Students Record</h2>
+
+    <button onclick="showData()">Show Results</button>
+
+    <div id="students"></div>
+    <div id="average" class="result"></div>
+    <div id="topper" class="result topper"></div>
+</div>
+
+<script>
+
+function showData(){
+
+    let students = [
+        {name: "Ali", marks: 85},
+        {name: "Sara", marks: 92},
+        {name: "Ahmed", marks: 78}
+    ];
+
+    let total = 0;
+    let topper = students[0];
+    let output = "";
+
+    for(let i = 0; i < students.length; i++){
+
+        output += "<div class='student'>Name: " + students[i].name +
+                  " | Marks: " + students[i].marks + "</div>";
+
+        total += students[i].marks;
+
+        if(students[i].marks > topper.marks){
+            topper = students[i];
+        }
+    }
+
+    let average = total / students.length;
+
+    document.getElementById("students").innerHTML = output;
+    document.getElementById("average").innerHTML = "Average Marks: " + average;
+    document.getElementById("topper").innerHTML =
+    "Topper: " + topper.name + " (" + topper.marks + " Marks)";
+}
+
+</script>
+
+</body>
+</html>

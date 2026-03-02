@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number Checker</title>
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+}
+
+.container{
+    background: white;
+    width: 320px;
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+button{
+    background-color: #673ab7;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Number Checker</h2>
+
+<input type="number" id="number" placeholder="Enter a number"><br><br>
+<button onclick="checkNumber()">Check</button>
+
+<h3 id="message"></h3>
+</div>
+
+<script>
+function checkNumber(){
+    let num = document.getElementById("number").value;
+
+    if(num === ""){
+        alert("Please enter a number!");
+        return;
+    }
+
+    num = Number(num);
+    let msg = document.getElementById("message");
+
+    let type = (num % 2 === 0) ? "Even" : "Odd";
+    let sign = (num >= 0) ? "Positive" : "Negative";
+
+    msg.innerHTML = "Number is " + type + " and " + sign;
+
+    msg.style.color = (num >= 0) ? "green" : "red";
+}
+</script>
+
+</body>
+</html>

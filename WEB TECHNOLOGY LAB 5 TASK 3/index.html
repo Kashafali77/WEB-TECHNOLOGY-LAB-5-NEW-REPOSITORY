@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array Based Web Page</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    color: #e91e63;
+}
+
+button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover{
+    background-color: #1976D2;
+}
+
+.result{
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+.highlight{
+    font-weight: bold;
+    color: #4CAF50;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Array Operations</h2>
+
+    <button onclick="showResults()">Show Results</button>
+
+    <div id="output" class="result"></div>
+</div>
+
+<script>
+
+function showResults(){
+
+    let numbers = [12, 25, 7, 40, 18, 30];
+
+    let sum = 0;
+    for(let i = 0; i < numbers.length; i++){
+        sum += numbers[i];
+    }
+
+    let largest = numbers[0];
+    for(let i = 1; i < numbers.length; i++){
+        if(numbers[i] > largest){
+            largest = numbers[i];
+        }
+    }
+
+    let reversed = [...numbers].reverse();
+
+    document.getElementById("output").innerHTML =
+    "<span class='highlight'>Original Array:</span> " + numbers.join(", ") + "<br><br>" +
+    "<span class='highlight'>Sum:</span> " + sum + "<br><br>" +
+    "<span class='highlight'>Largest Number:</span> " + largest + "<br><br>" +
+    "<span class='highlight'>Reversed Array:</span> " + reversed.join(", ");
+}
+
+</script>
+
+</body>
+</html>
